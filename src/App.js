@@ -82,6 +82,7 @@ function App() {
                     </Route>
                     <Route path="/Socrates">
                         <Socrates
+                            submit={submit}
                             message={message}
                             inventory={inventory}
                             globalQty={globalQty}
