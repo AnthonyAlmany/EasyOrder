@@ -1,0 +1,23 @@
+.type{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top:2rem;
+
+    margin: auto;
+
+    h3{
+        color: grey;
+        width: 30%;
+
+    }
+
+    .cont{
+        border-bottom: 2px solid grey;
+        width: 50%;
+
+    }
+}
+
