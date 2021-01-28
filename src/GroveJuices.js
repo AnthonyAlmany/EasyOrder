@@ -6,25 +6,15 @@ import './styles/app.scss'
 
 
 
-function GroveJuices({ inventory, message, increaseHandler, decreaseHandler }) {
-    // let { name, type } = useParams();
+function GroveJuices({ inventory, increaseHandler, decreaseHandler, copied, copiedMessage, copyTemplate }) {
 
-    // const [showList, setShowList] = useState(false);
-    // const dropDownHandler = () => {
-    //   setShowList(!showList)
-    // }
     return (
 
         <div>
-            {/* <h3>Supplier #{name} - {type}</h3> */}
             <div className="list-container">
 
-
-                <div className="dropdown-menu">
-                    {/* <Button onClick={dropDownHandler} >{!showList ? <ExpandMoreIcon /> : <ExpandLessIcon />}</Button> */}
-                </div>
                 <div>
-                    {/* <div className={showList ? "dropped" : "hidden"}> */}
+
                     {inventory.filter(item => item.supplier === 'Grove Juices').map(item =>
                         <Item
                             key={item.id}
@@ -36,14 +26,11 @@ function GroveJuices({ inventory, message, increaseHandler, decreaseHandler }) {
                 </div>
             </div>
 
-
+            <p>{copied}</p>
             <div className="list-buttons">
-                {/* <Button variant="contained" disabled={globalQty === 0} onClick={submit}>Submit</Button> */}
-                <Button variant="contained" onClick={() => navigator.clipboard.writeText(`Hello,\n\nI woud like to order for Kazbah Darling Harbour the following items:\n\n${message}\n\nDelivery on Wednesday\n
- Thanks,
- `)}>Copy</Button>
+                <Button variant="contained" onClick={() => { copiedMessage(); copyTemplate(); }}>Copy</Button>
             </div>
-        </div>
+        </div >
 
     )
 }

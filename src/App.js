@@ -15,7 +15,7 @@ function App() {
     const [inventory, setInventory] = useState(items);
     const [message, setMessage] = useState('')
     const [globalQty, setGlobalQty] = useState(inventory.reduce((acc, item) => { acc += item.qty; return acc; }, 0));
-
+    const [copied, setCopied] = useState("");
 
 
     const increaseHandler = function () {
@@ -62,10 +62,22 @@ function App() {
     const resetQty = () => {
         const newState = inventory.map(it => { return { ...it, qty: 0 } });
         setInventory(newState)
+        setCopied("")
+    };
+
+
+    const copiedMessage = () => {
+        setCopied("Order has been copied!")
     }
 
+    const copyTemplate = () => {
+        navigator.clipboard.writeText(`Hello,\n\nI woud like to order for Kazbah Darling Harbour the following items:\n\n${message}\n\nDelivery on Wednesday\n
+        Thanks,
+        `)
+    };
+
     const submit = () => {
-        window.open(`mailto:qqq.gmail.com?cc=cc@gmail.com&subject=Ordering Request for Kazbah&body=${encodeURIComponent(
+        window.open(`mailto:timandrews@wolfman.com.au?cc=zahi@kazbah.com.au,dhmanager@kazbah.com.au&subject=Ordering Request for Kazbah&body=${encodeURIComponent(
             `Hello,\n\nI would like to order for Kazbah Darling Harbour the following items:\n\n${message}\n\nDelivery on Friday\n
  Thanks,
  `)}`);
@@ -76,6 +88,8 @@ function App() {
             <div>
                 <div className="nav">
                     <Link onClick={resetQty} to="/"><HomeIcon fontSize="large" /></Link>
+                    <Link onClick={resetQty} to="/"><h2>KAZBAH'APP</h2></Link>
+
                 </div>
                 <Switch>
                     <Route path="/" exact>
@@ -85,41 +99,44 @@ function App() {
                                 <Link to="/GroveJuices"> <div className="box"> <h2>Grove Juices</h2></div></Link>
                                 <Link to="/SFP"> <div className="box"> <h2>SFP</h2></div></Link>
                                 <Link to="/Wolfman"> <div className="box"> <h2>Wolfman</h2></div></Link>
-                                {/* {suppliers.map(supplierName => <li><Link to={`/App/${supplierName}`}> <h1>Supplier {supplierName}</h1></Link></li>)} */}
                             </div>
                         </div>
                     </Route>
                     <Route path="/Socrates">
                         <Socrates
-                            submit={submit}
-                            message={message}
+                            copiedMessage={copiedMessage}
+                            copied={copied}
+                            copyTemplate={copyTemplate}
                             inventory={inventory}
-                            globalQty={globalQty}
                             increaseHandler={increaseHandler}
                             decreaseHandler={decreaseHandler}
                         />
                     </Route>
                     <Route path="/GroveJuices">
                         <GroveJuices
-                            message={message}
+                            copiedMessage={copiedMessage}
+                            copied={copied}
+                            copyTemplate={copyTemplate}
                             inventory={inventory}
-                            globalQty={globalQty}
                             increaseHandler={increaseHandler}
                             decreaseHandler={decreaseHandler}
                         />
                     </Route>
                     <Route path="/SFP">
                         <Sfp
-                            message={message}
+                            copiedMessage={copiedMessage}
+                            copied={copied}
+                            copyTemplate={copyTemplate}
                             inventory={inventory}
-                            globalQty={globalQty}
                             increaseHandler={increaseHandler}
                             decreaseHandler={decreaseHandler}
                         />
                     </Route>
                     <Route path="/Wolfman">
                         <Wolfman
-                            message={message}
+                            copiedMessage={copiedMessage}
+                            copied={copied}
+                            copyTemplate={copyTemplate}
                             inventory={inventory}
                             submit={submit}
                             globalQty={globalQty}
@@ -146,4 +163,6 @@ export default App;
     //         }
     //         return acc;
     //     }, []);
+
+
 

@@ -6,7 +6,7 @@ import './styles/supplier.scss'
 
 
 
-function Sfp({ inventory, message, globalQty, increaseHandler, decreaseHandler }) {
+function Sfp({ inventory, increaseHandler, decreaseHandler, copied, copiedMessage, copyTemplate }) {
 
     return (
 
@@ -25,9 +25,7 @@ function Sfp({ inventory, message, globalQty, increaseHandler, decreaseHandler }
                         decreaseHandler={decreaseHandler.bind(item)}
                     />
                 )}
-
             </div>
-
             <div className="type">
                 <h3>Dry goods</h3>
                 <div className="cont"></div>
@@ -44,11 +42,9 @@ function Sfp({ inventory, message, globalQty, increaseHandler, decreaseHandler }
                 )}
 
             </div>
-
+            <p>{copied}</p>
             <div className="list-buttons">
-                <Button variant="contained" onClick={() => navigator.clipboard.writeText(`Hello,\n\nI woud like to order for Kazbah Darling Harbour the following items:\n\n${message}\n\nDelivery on Wednesday\n
- Thanks,
- `)}>Copy</Button>
+                <Button variant="contained" onClick={() => { copiedMessage(); copyTemplate(); }}>Copy</Button>
             </div>
         </div>
 

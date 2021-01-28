@@ -19,7 +19,7 @@ function Group({ inventory, increaseHandler, decreaseHandler, type }) {
 
     return (
         <div>
-            <div className="type dropdow-menu">
+            <div className="type">
                 <h3>{type}</h3>
                 <div className="cont"></div>
                 <Button onClick={dropDownHandler} >{!showList ? <ExpandMoreIcon /> : <ExpandLessIcon />}</Button>

@@ -1,4 +1,4 @@
-import React from 'react'
+import { React, useState } from 'react'
 import Group from './components/Group.js'
 
 import './styles/supplier.scss'
@@ -8,7 +8,8 @@ import './styles/app.scss'
 import Button from '@material-ui/core/Button';
 
 
-function Wolfman({ inventory, message, globalQty, increaseHandler, decreaseHandler, submit }) {
+function Wolfman({ inventory, globalQty, increaseHandler, decreaseHandler, submit, copyTemplate, copied, copiedMessage }) {
+
 
     const filterArray = inventory.filter(item => item.supplier === "Wolfman").map(foo => foo.type);
     const typeArray = [...new Set(filterArray)]
@@ -22,13 +23,12 @@ function Wolfman({ inventory, message, globalQty, increaseHandler, decreaseHandl
                     increaseHandler={increaseHandler}
                     decreaseHandler={decreaseHandler} />
             )}
-
+            <p>{copied}</p>
             <div className="list-buttons">
                 <Button variant="contained" disabled={globalQty === 0} onClick={submit}>Submit</Button>
-                <Button variant="contained" onClick={() => navigator.clipboard.writeText(`Hello,\n\nI woud like to order for Kazbah Darling Harbour the following items:\n\n${message}\n\nDelivery on Wednesday\n
- Thanks,
- `)}>Copy</Button>
+                <Button variant="contained" onClick={() => { copiedMessage(); copyTemplate(); }}>Copy</Button>
             </div>
+
         </div>
 
     )
@@ -81,3 +81,4 @@ export default Wolfman;
             </div> */
 
              // const typeArray = ["beer", "house spirit", "Gin", "Vodka", "Tequila", "Rhum", "Scotch", "Liqueur", "Fortified", "Cognac", "Digestive", "Others"];
+

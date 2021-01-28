@@ -251,7 +251,7 @@ const items = [
     {
         name: "Almaza",
         supplier: "Wolfman",
-        type: "beer",
+        type: "Beer",
         pack: "box",
         qty: 0,
         id: uuidv4()
@@ -259,7 +259,7 @@ const items = [
     {
         name: "Peroni",
         supplier: "Wolfman",
-        type: "beer",
+        type: "Beer",
         pack: "box",
         qty: 0,
         id: uuidv4()
@@ -267,7 +267,7 @@ const items = [
     {
         name: "Corona",
         supplier: "Wolfman",
-        type: "beer",
+        type: "Beer",
         pack: "box",
         qty: 0,
         id: uuidv4()
@@ -275,7 +275,7 @@ const items = [
     {
         name: "Heineken",
         supplier: "Wolfman",
-        type: "beer",
+        type: "Beer",
         pack: "box",
         qty: 0,
         id: uuidv4()
@@ -283,7 +283,7 @@ const items = [
     {
         name: "Guinness",
         supplier: "Wolfman",
-        type: "beer",
+        type: "Beer",
         pack: "box",
         qty: 0,
         id: uuidv4()
@@ -291,7 +291,7 @@ const items = [
     {
         name: "Stone & Wood",
         supplier: "Wolfman",
-        type: "beer",
+        type: "Beer",
         pack: "box",
         qty: 0,
         id: uuidv4()
@@ -299,7 +299,7 @@ const items = [
     {
         name: "James Boages",
         supplier: "Wolfman",
-        type: "beer",
+        type: "Beer",
         pack: "box",
         qty: 0,
         id: uuidv4()
@@ -307,7 +307,7 @@ const items = [
     {
         name: "James Squire 150 Lashes",
         supplier: "Wolfman",
-        type: "beer",
+        type: "Beer",
         pack: "box",
         qty: 0,
         id: uuidv4()
@@ -315,7 +315,7 @@ const items = [
     {
         name: "Pure Blonde",
         supplier: "Wolfman",
-        type: "beer",
+        type: "Beer",
         pack: "box",
         qty: 0,
         id: uuidv4()
@@ -323,7 +323,7 @@ const items = [
     {
         name: "Coopers Light",
         supplier: "Wolfman",
-        type: "beer",
+        type: "Beer",
         pack: "box",
         qty: 0,
         id: uuidv4()
@@ -331,7 +331,7 @@ const items = [
     {
         name: "Hillbily Apple cider",
         supplier: "Wolfman",
-        type: "beer",
+        type: "Beer",
         pack: "box",
         qty: 0,
         id: uuidv4()
@@ -339,7 +339,7 @@ const items = [
     {
         name: "Hillbily Pear Cider",
         supplier: "Wolfman",
-        type: "beer",
+        type: "Beer",
         pack: "box",
         qty: 0,
         id: uuidv4()
@@ -349,7 +349,7 @@ const items = [
     {
         name: "House Vodka",
         supplier: "Wolfman",
-        type: "house spirit",
+        type: "House Spirit",
         pack: "btl",
         qty: 0,
         id: uuidv4()
@@ -357,7 +357,7 @@ const items = [
     {
         name: "House Gin",
         supplier: "Wolfman",
-        type: "house spirit",
+        type: "House Spirit",
         pack: "btl",
         qty: 0,
         id: uuidv4()
@@ -365,7 +365,7 @@ const items = [
     {
         name: "House Tequila",
         supplier: "Wolfman",
-        type: "house spirit",
+        type: "House Spirit",
         pack: "btl",
         qty: 0,
         id: uuidv4()
