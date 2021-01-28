@@ -3,6 +3,7 @@ import './styles/app.scss'
 import Socrates from './Socrates'
 import GroveJuices from './GroveJuices'
 import Sfp from './Sfp'
+import Wolfman from './Wolfman'
 import items from './inventory'
 import HomeIcon from '@material-ui/icons/Home';
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
@@ -16,17 +17,21 @@ function App() {
     const [globalQty, setGlobalQty] = useState(inventory.reduce((acc, item) => { acc += item.qty; return acc; }, 0));
 
 
+
     const increaseHandler = function () {
         const newState = inventory.map(it => {
             if (it.id !== this.id) return it;
             return { ...this, qty: this.qty + 1 > 10 ? 10 : this.qty + 1 };
         });
 
+
+
         setInventory(
             newState
         );
 
         setMessage(newState.filter(e => e.qty > 0).map(el => {
+
             return (
                 `- ${el.qty} ${el.pack} of ${el.name}`
             );
@@ -79,6 +84,7 @@ function App() {
                                 <Link to="/Socrates"> <div className="box"> <h2>Socrates</h2></div></Link>
                                 <Link to="/GroveJuices"> <div className="box"> <h2>Grove Juices</h2></div></Link>
                                 <Link to="/SFP"> <div className="box"> <h2>SFP</h2></div></Link>
+                                <Link to="/Wolfman"> <div className="box"> <h2>Wolfman</h2></div></Link>
                                 {/* {suppliers.map(supplierName => <li><Link to={`/App/${supplierName}`}> <h1>Supplier {supplierName}</h1></Link></li>)} */}
                             </div>
                         </div>
@@ -106,6 +112,16 @@ function App() {
                         <Sfp
                             message={message}
                             inventory={inventory}
+                            globalQty={globalQty}
+                            increaseHandler={increaseHandler}
+                            decreaseHandler={decreaseHandler}
+                        />
+                    </Route>
+                    <Route path="/Wolfman">
+                        <Wolfman
+                            message={message}
+                            inventory={inventory}
+                            submit={submit}
                             globalQty={globalQty}
                             increaseHandler={increaseHandler}
                             decreaseHandler={decreaseHandler}

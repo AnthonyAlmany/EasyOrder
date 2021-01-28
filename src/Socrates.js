@@ -1,15 +1,14 @@
 import React from 'react'
 import Item from './components/Item.js'
-import Button from '@material-ui/core/Button';
-// import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 import './styles/app.scss'
-import { useParams } from 'react-router-dom';
+
+import Button from '@material-ui/core/Button';
 
 
 
 function Socrates({ inventory, message, globalQty, increaseHandler, decreaseHandler, submit }) {
-  let { name, type } = useParams();
+  // let { name, type } = useParams();
 
   // const [showList, setShowList] = useState(false);
   // const dropDownHandler = () => {
