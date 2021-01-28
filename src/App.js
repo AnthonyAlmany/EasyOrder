@@ -78,7 +78,7 @@ function App() {
 
     const submit = () => {
         window.open(`mailto:timandrews@wolfman.com.au?cc=zahi@kazbah.com.au,dhmanager@kazbah.com.au&subject=Ordering Request for Kazbah&body=${encodeURIComponent(
-            `Hello,\n\nI would like to order for Kazbah Darling Harbour the following items:\n\n${message}\n\nDelivery on Friday\n
+            `Hello,\n\nI would like to order for Kazbah Darling Harbour the following items:\n\n${message}\n\nDelivery on Wednesday\n
  Thanks,
  `)}`);
     };
