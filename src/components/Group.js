@@ -27,7 +27,7 @@ function Group({ inventory, increaseHandler, decreaseHandler, type }) {
 
             <div className="list-container">
                 <div className={showList ? "dropped" : "hidden"}>
-                    {inventory.filter(item => item.supplier === 'Wolfman' && item.type === `${type}`).map(item =>
+                    {inventory.filter(item => item.type === `${type}`).map(item =>
                         <Item
                             key={item.id}
                             item={item}

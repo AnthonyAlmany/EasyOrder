@@ -1,943 +1,988 @@
 import { v4 as uuidv4 } from 'uuid';
 
-const items = [
-    //Socrates
-    {
-        name: "San Pellegrino",
-        supplier: "Socrates",
-        type: "",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
+const suppliers = {
+    Socrates: {
+        emailAddress: 'foo@socrates.com.au',
+        canSendEmail: false,
+        items: [{
+            name: "San Pellegrino",
+            type: "",
+            pack: "box",
+            qty: 0,
+            id: uuidv4()
+        },
+        {
+            name: "Aqua Panna",
+            type: "",
+            pack: "box",
+            qty: 0,
+            id: uuidv4()
+        },
+        {
+            name: "Red Bull",
+            type: "",
+            pack: "box",
+            qty: 0,
+            id: uuidv4()
+        },
+        {
+            name: "Ginger Beer",
+            type: "",
+            pack: "box",
+            qty: 0,
+            id: uuidv4()
+        },
+        {
+            name: "Bonsoy Milk",
+            type: "",
+            pack: "box",
+            qty: 0,
+            id: uuidv4()
+        },
+        {
+            name: "Almond Milk Lab",
+            type: "",
+            pack: "box",
+            qty: 0,
+            id: uuidv4()
+        },]
     },
-    {
-        name: "Aqua Panna",
-        supplier: "Socrates",
-        type: "",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Red Bull",
-        supplier: "Socrates",
-        type: "",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Ginger Beer",
-        supplier: "Socrates",
-        type: "",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Bonsoy Milk",
-        supplier: "Socrates",
-        type: "",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Almond Milk Lab",
-        supplier: "Socrates",
-        type: "",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    //Juices --------------------------------------------------------------------------
-    {
-        name: "Apple",
-        supplier: "Grove Juices",
-        type: "",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Pineapple",
-        supplier: "Grove Juices",
-        type: "",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Cranberry",
-        supplier: "Grove Juices",
-        type: "",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Apple Mandarin Passionfruit",
-        supplier: "Grove Juices",
-        type: "",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
+    Juices: {
+        emailAddress: 'foo@juices.com.au',
+        canSendEmail: false,
+        items: [
+            {
+                name: "Apple",
 
-    //SFP ------------------------------------------------------------
-    {
-        name: "Limes",
-        supplier: "Sfp",
-        type: "fruit",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Apples",
-        supplier: "Sfp",
-        type: "fruit",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Oranges",
-        supplier: "Sfp",
-        type: "fruit",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Pineapples",
-        supplier: "Sfp",
-        type: "fruit",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Lime Juice",
-        supplier: "Sfp",
-        type: "fruit",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Strawberries",
-        supplier: "Sfp",
-        type: "fruit",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Frozen Passion fruit pulp",
-        supplier: "Sfp",
-        type: "fruit",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Lychees",
-        supplier: "Sfp",
-        type: "fruit",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Containers 1000mL",
-        supplier: "Sfp",
-        type: "dry goods",
-        pack: "sleeve",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Containers 500mL",
-        supplier: "Sfp",
-        type: "dry goods",
-        pack: "sleeve",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Rectangular Lids",
-        supplier: "Sfp",
-        type: "dry goods",
-        pack: "sleeve",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Kids cups + Lids",
-        supplier: "Sfp",
-        type: "dry goods",
-        pack: "sleeve",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Coffee cups + Lids",
-        supplier: "Sfp",
-        type: "dry goods",
-        pack: "sleeve",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Dinner napkins",
-        supplier: "Sfp",
-        type: "dry goods",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Cocktail napkins",
-        supplier: "Sfp",
-        type: "dry goods",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Chuck Brown",
-        supplier: "Sfp",
-        type: "dry goods",
-        pack: "roll",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Golf skewers 9mm",
-        supplier: "Sfp",
-        type: "dry goods",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Aluminium foil",
-        supplier: "Sfp",
-        type: "dry goods",
-        pack: "roll",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Long Black Straws",
-        supplier: "Sfp",
-        type: "dry goods",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Cocktail Black Straws",
-        supplier: "Sfp",
-        type: "dry goods",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
+                type: "",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Pineapple",
 
-    // WOLFMAN ------------------------------------------------------- 
-    // BEERS   -------------------------------------------------------
-    {
-        name: "Almaza",
-        supplier: "Wolfman",
-        type: "Beer",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Peroni",
-        supplier: "Wolfman",
-        type: "Beer",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Corona",
-        supplier: "Wolfman",
-        type: "Beer",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Heineken",
-        supplier: "Wolfman",
-        type: "Beer",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Guinness",
-        supplier: "Wolfman",
-        type: "Beer",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Stone & Wood",
-        supplier: "Wolfman",
-        type: "Beer",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "James Boages",
-        supplier: "Wolfman",
-        type: "Beer",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "James Squire 150 Lashes",
-        supplier: "Wolfman",
-        type: "Beer",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Pure Blonde",
-        supplier: "Wolfman",
-        type: "Beer",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Coopers Light",
-        supplier: "Wolfman",
-        type: "Beer",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Hillbily Apple cider",
-        supplier: "Wolfman",
-        type: "Beer",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Hillbily Pear Cider",
-        supplier: "Wolfman",
-        type: "Beer",
-        pack: "box",
-        qty: 0,
-        id: uuidv4()
-    },
-    // WOLFMAN ------------------------------------------------------- 
-    // HOUSE SPIRITS   -------------------------------------------------------
-    {
-        name: "House Vodka",
-        supplier: "Wolfman",
-        type: "House Spirit",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "House Gin",
-        supplier: "Wolfman",
-        type: "House Spirit",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "House Tequila",
-        supplier: "Wolfman",
-        type: "House Spirit",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    // WOLFMAN ------------------------------------------------------- 
-    // GIN   -------------------------------------------------------
-    {
-        name: "Beefeater",
-        supplier: "Wolfman",
-        type: "Gin",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Bombay Sapphire",
-        supplier: "Wolfman",
-        type: "Gin",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Hendricks",
-        supplier: "Wolfman",
-        type: "Gin",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Tanqueray",
-        supplier: "Wolfman",
-        type: "Gin",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Tanqueray No 10",
-        supplier: "Wolfman",
-        type: "Gin",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    // WOLFMAN ------------------------------------------------------- 
-    // VODKA   -------------------------------------------------------
-    {
-        name: "Absolute Vodka",
-        supplier: "Wolfman",
-        type: "Vodka",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Absolute Vanilla",
-        supplier: "Wolfman",
-        type: "Vodka",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Absolute Raspberry",
-        supplier: "Wolfman",
-        type: "Vodka",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Belvedere",
-        supplier: "Wolfman",
-        type: "Vodka",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Grey Goose",
-        supplier: "Wolfman",
-        type: "Vodka",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    // WOLFMAN ------------------------------------------------------- 
-    // TEQUILA   -------------------------------------------------------
-    {
-        name: "Herradurra Plato",
-        supplier: "Wolfman",
-        type: "Tequila",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Jose Cuervo Silver",
-        supplier: "Wolfman",
-        type: "Tequila",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Jose Cuervo Reposado",
-        supplier: "Wolfman",
-        type: "Tequila",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Patron XO",
-        supplier: "Wolfman",
-        type: "Tequila",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    // WOLFMAN ------------------------------------------------------- 
-    // RHUM   -------------------------------------------------------
-    {
-        name: "Bacardi",
-        supplier: "Wolfman",
-        type: "Rhum",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Bundaberg",
-        supplier: "Wolfman",
-        type: "Rhum",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
+                type: "",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Cranberry",
 
-    {
-        name: "Captain Morgan",
-        supplier: "Wolfman",
-        type: "Rhum",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
+                type: "",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Apple Mandarin Passionfruit",
 
-    {
-        name: "Malibu",
-        supplier: "Wolfman",
-        type: "Rhum",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
+                type: "",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            }]
     },
+    SFP: {
+        emailAddress: 'foo@sfp.com.au',
+        canSendEmail: false,
+        items: [
+            {
+                name: "Limes",
 
-    {
-        name: "Ron Zacapa",
-        supplier: "Wolfman",
-        type: "Rhum",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
+                type: "fruit",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Apples",
 
-    {
-        name: "Appleton Estate",
-        supplier: "Wolfman",
-        type: "Rhum",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
+                type: "fruit",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Oranges",
 
-    {
-        name: "Sailor Jerry",
-        supplier: "Wolfman",
-        type: "Rhum",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
+                type: "fruit",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Pineapples",
 
-    {
-        name: "Kraken",
-        supplier: "Wolfman",
-        type: "Rhum",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
+                type: "fruit",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Lime Juice",
+
+                type: "fruit",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Orange Juice",
+
+                type: "fruit",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Fresh Lemonade",
+
+                type: "fruit",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Strawberries",
+
+                type: "fruit",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Frozen Passion fruit pulp",
+
+                type: "fruit",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Lychees",
+
+                type: "fruit",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Containers 1000mL",
+
+                type: "dry goods",
+                pack: "sleeve",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Containers 500mL",
+
+                type: "dry goods",
+                pack: "sleeve",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Rectangular Lids",
+
+                type: "dry goods",
+                pack: "sleeve",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Kids cups + Lids",
+
+                type: "dry goods",
+                pack: "sleeve",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Coffee cups + Lids",
+
+                type: "dry goods",
+                pack: "sleeve",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Dinner napkins",
+
+                type: "dry goods",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Cocktail napkins",
+
+                type: "dry goods",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Chuck Brown",
+
+                type: "dry goods",
+                pack: "roll",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Golf skewers 9mm",
+
+                type: "dry goods",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Aluminium foil",
+
+                type: "dry goods",
+                pack: "roll",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Long Black Straws",
+
+                type: "dry goods",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Cocktail Black Straws",
+
+                type: "dry goods",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+
+        ]
     },
-    // WOLFMAN ------------------------------------------------------- 
-    // SCOTCH   -------------------------------------------------------
-    {
-        name: "Canadian Club",
-        supplier: "Wolfman",
-        type: "Scotch",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Chivas 12yo",
-        supplier: "Wolfman",
-        type: "Scotch",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Fireball",
-        supplier: "Wolfman",
-        type: "Scotch",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Glenfiddich 12yo",
-        supplier: "Wolfman",
-        type: "Scotch",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Jack Daniels",
-        supplier: "Wolfman",
-        type: "Scotch",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Jameson",
-        supplier: "Wolfman",
-        type: "Scotch",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Johnny Red",
-        supplier: "Wolfman",
-        type: "Scotch",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Johnny Black",
-        supplier: "Wolfman",
-        type: "Scotch",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Johnny Blue",
-        supplier: "Wolfman",
-        type: "Scotch",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Lagavulin 16yo",
-        supplier: "Wolfman",
-        type: "Scotch",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Talisker 10yo",
-        supplier: "Wolfman",
-        type: "Scotch",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    // WOLFMAN ------------------------------------------------------- 
-    // LIQUEUR   -------------------------------------------------------
-    {
-        name: "Baileys",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Kahlua",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Tia Maria",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Frangelico",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Drambuie",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Disaronno",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Galliano Black",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Galliano Sambuca",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Galliano Vanilla",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Dom Benedictine",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Grand Marnier",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Cointreau",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Chambord",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Midori Melon",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Soho",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Ouzo",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Arak",
-        supplier: "Wolfman",
-        type: "Liqueur",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    // WOLFMAN ------------------------------------------------------- 
-    // FORTIFIED   -------------------------------------------------------
-    {
-        name: "Penfold Club",
-        supplier: "Wolfman",
-        type: "Fortified",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Chambers Muscat",
-        supplier: "Wolfman",
-        type: "Fortified",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Galway Pipe",
-        supplier: "Wolfman",
-        type: "Fortified",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Penfold Grand Father",
-        supplier: "Wolfman",
-        type: "Fortified",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    // WOLFMAN ------------------------------------------------------- 
-    // COGNAC   -------------------------------------------------------
-    {
-        name: "Sempe VSOP",
-        supplier: "Wolfman",
-        type: "Cognac",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Courvoisier VSOP",
-        supplier: "Wolfman",
-        type: "Cognac",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Remy Martin",
-        supplier: "Wolfman",
-        type: "Cognac",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Martell Cordon Bleu",
-        supplier: "Wolfman",
-        type: "Cognac",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Hennessey Xo",
-        supplier: "Wolfman",
-        type: "Cognac",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    // WOLFMAN ------------------------------------------------------- 
-    // DIGESTIVE   -------------------------------------------------------
-    {
-        name: "Averna Amaro",
-        supplier: "Wolfman",
-        type: "Digestive",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Villa Massa Limoncello",
-        supplier: "Wolfman",
-        type: "Digestive",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Antinori Grappa",
-        supplier: "Wolfman",
-        type: "Digestive",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    // WOLFMAN ------------------------------------------------------- 
-    // OTHERS   -------------------------------------------------------
-    {
-        name: "Angostura bitter",
-        supplier: "Wolfman",
-        type: "Others",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Grenadine",
-        supplier: "Wolfman",
-        type: "Others",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
-    },
-    {
-        name: "Overproof Rhum",
-        supplier: "Wolfman",
-        type: "Others",
-        pack: "btl",
-        qty: 0,
-        id: uuidv4()
+    Wolfman: {
+        emailAddress: 'tim@wolfman.com.au',
+        canSendEmail: true,
+        items: [
+            {
+                name: "Almaza",
+
+                type: "Beer",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Peroni",
+
+                type: "Beer",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Corona",
+
+                type: "Beer",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Heineken",
+
+                type: "Beer",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Guinness",
+
+                type: "Beer",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Stone & Wood",
+
+                type: "Beer",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "James Boages",
+
+                type: "Beer",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "James Squire 150 Lashes",
+
+                type: "Beer",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Pure Blonde",
+
+                type: "Beer",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Coopers Light",
+
+                type: "Beer",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Hillbily Apple cider",
+
+                type: "Beer",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Hillbily Pear Cider",
+
+                type: "Beer",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            // WOLFMAN ------------------------------------------------------- 
+            // HOUSE SPIRITS   -------------------------------------------------------
+            {
+                name: "House Vodka",
+
+                type: "House Spirit",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "House Gin",
+
+                type: "House Spirit",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "House Tequila",
+
+                type: "House Spirit",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            // WOLFMAN ------------------------------------------------------- 
+            // GIN   -------------------------------------------------------
+            {
+                name: "Beefeater",
+
+                type: "Gin",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Bombay Sapphire",
+
+                type: "Gin",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Hendricks",
+
+                type: "Gin",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Tanqueray",
+
+                type: "Gin",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Tanqueray No 10",
+
+                type: "Gin",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            // WOLFMAN ------------------------------------------------------- 
+            // VODKA   -------------------------------------------------------
+            {
+                name: "Absolute Vodka",
+
+                type: "Vodka",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Absolute Vanilla",
+
+                type: "Vodka",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Absolute Raspberry",
+
+                type: "Vodka",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Belvedere",
+
+                type: "Vodka",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Grey Goose",
+
+                type: "Vodka",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            // WOLFMAN ------------------------------------------------------- 
+            // TEQUILA   -------------------------------------------------------
+            {
+                name: "Herradurra Plato",
+
+                type: "Tequila",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Jose Cuervo Silver",
+
+                type: "Tequila",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Jose Cuervo Reposado",
+
+                type: "Tequila",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Patron XO",
+
+                type: "Tequila",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            // WOLFMAN ------------------------------------------------------- 
+            // RHUM   -------------------------------------------------------
+            {
+                name: "Bacardi",
+
+                type: "Rhum",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Bundaberg",
+
+                type: "Rhum",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+
+            {
+                name: "Captain Morgan",
+
+                type: "Rhum",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+
+            {
+                name: "Malibu",
+
+                type: "Rhum",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+
+            {
+                name: "Ron Zacapa",
+
+                type: "Rhum",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+
+            {
+                name: "Appleton Estate",
+
+                type: "Rhum",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+
+            {
+                name: "Sailor Jerry",
+
+                type: "Rhum",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+
+            {
+                name: "Kraken",
+
+                type: "Rhum",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            // WOLFMAN ------------------------------------------------------- 
+            // SCOTCH   -------------------------------------------------------
+            {
+                name: "Canadian Club",
+
+                type: "Scotch",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Chivas 12yo",
+
+                type: "Scotch",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Fireball",
+
+                type: "Scotch",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Glenfiddich 12yo",
+
+                type: "Scotch",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Jack Daniels",
+
+                type: "Scotch",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Jameson",
+
+                type: "Scotch",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Johnny Red",
+
+                type: "Scotch",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Johnny Black",
+
+                type: "Scotch",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Johnny Blue",
+
+                type: "Scotch",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Lagavulin 16yo",
+
+                type: "Scotch",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Talisker 10yo",
+
+                type: "Scotch",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            // WOLFMAN ------------------------------------------------------- 
+            // LIQUEUR   -------------------------------------------------------
+            {
+                name: "Baileys",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Kahlua",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Tia Maria",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Frangelico",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Drambuie",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Disaronno",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Galliano Black",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Galliano Sambuca",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Galliano Vanilla",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Dom Benedictine",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Grand Marnier",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Cointreau",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Chambord",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Midori Melon",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Soho",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Ouzo",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Arak",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            // WOLFMAN ------------------------------------------------------- 
+            // FORTIFIED   -------------------------------------------------------
+            {
+                name: "Penfold Club",
+
+                type: "Fortified",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Chambers Muscat",
+
+                type: "Fortified",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Galway Pipe",
+
+                type: "Fortified",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Penfold Grand Father",
+
+                type: "Fortified",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            // WOLFMAN ------------------------------------------------------- 
+            // COGNAC   -------------------------------------------------------
+            {
+                name: "Sempe VSOP",
+
+                type: "Cognac",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Courvoisier VSOP",
+
+                type: "Cognac",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Remy Martin",
+
+                type: "Cognac",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Martell Cordon Bleu",
+
+                type: "Cognac",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Hennessey Xo",
+
+                type: "Cognac",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            // WOLFMAN ------------------------------------------------------- 
+            // DIGESTIVE   -------------------------------------------------------
+            {
+                name: "Averna Amaro",
+
+                type: "Digestive",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Villa Massa Limoncello",
+
+                type: "Digestive",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Antinori Grappa",
+
+                type: "Digestive",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            // WOLFMAN ------------------------------------------------------- 
+            // OTHERS   -------------------------------------------------------
+            {
+                name: "Angostura bitter",
+
+                type: "Others",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Grenadine",
+
+                type: "Others",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Overproof Rhum",
+
+                type: "Others",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Jagermeister",
+
+                type: "Others",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Apple Schnapps",
+
+                type: "Others",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Peach Schnapps",
+
+                type: "Others",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Triple Sec",
+
+                type: "Others",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "White Creme De Cacao",
+
+                type: "Others",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            }
+        ]
     }
+}
 
 
-];
 
-// const inventory = [
-//     {
-//         supplier1: {
-//             settings: {
-//                 shouldSendEmail: false,
-//             },
-//             items: [
-//                 {
-//                     name: "Petit Lu",
-//                     type: "other",
-//                     pack: "btl",
-//                     popularity: "",
-//                     qty: 0,
-//                     id: uuidv4()
-//                 },
-//             ]
-//         }
-//     }
-// ]
-
-export default items
+export default suppliers;

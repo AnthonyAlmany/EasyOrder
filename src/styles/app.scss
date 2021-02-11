@@ -65,3 +65,44 @@ width: 20rem;
 .hidden{
     display: none;
 }
+
+.delivery-container{
+    margin: 2rem;
+    padding-top: 1rem;
+    display:flex;
+}
+
+select {
+    border:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -ms-appearance: none; 
+    font-family: 'Open Sans', sans-serif;
+    font-size: medium;
+    cursor: pointer;
+    padding-top: 4px;
+    padding-left: 1rem;
+    width: 9rem;
+    color: #0E2489;
+   
+}
+
+.select-container{
+    position: relative;
+    overflow: hidden;
+    ::after{
+        height:2rem;
+        width: 2rem;
+        color: #0E2489;
+        content:"\25BC";
+        position: absolute;
+        cursor: pointer;
+        pointer-events: none;
+        right: 70px;
+        top:-7px;
+
+    }
+}
+
+
