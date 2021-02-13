@@ -117,7 +117,7 @@ Thanks,
           </div>
         </div>
         <div className="delivery-container">
-          <h3>Delivery Day:</h3>
+          <h3>Delivery:</h3>
           <div className="select-container">
 
             <select value={day} onChange={handleChange}>
@@ -125,7 +125,6 @@ Thanks,
                 <option value={option.value}>{option.label}</option>
               ))}
             </select>
-            <Button />
           </div>
         </div>
 
@@ -157,7 +156,6 @@ Thanks,
                 <option value={option.value}>{option.label}</option>
               ))}
             </select>
-            <Button />
           </div>
         </div>
         <p>{copied}</p>
