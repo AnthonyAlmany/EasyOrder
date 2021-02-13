@@ -149,7 +149,7 @@ Thanks,
             decreaseHandler={decreaseHandler} />
         )}
         <div className="delivery-container">
-          <h3>Delivery Day:</h3>
+          <h4>Delivery:</h4>
           <div className="select-container">
 
             <select value={day} onChange={handleChange}>
