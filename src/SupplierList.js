@@ -1,12 +1,11 @@
 import { React, useState } from 'react'
 import { useParams } from "react-router-dom";
 import Item from './components/Item.js'
-import options from './select-day.js'
 import Group from './components/Group.js'
-
+import Date from './components/Date.js'
 import './styles/app.scss'
-
 import Button from '@material-ui/core/Button';
+import { v4 as uuidv4 } from 'uuid';
 
 
 
@@ -89,9 +88,6 @@ Thanks,
   };
 
 
-  const handleChange = (e) => {
-    setDay(e.target.value)
-  }
 
   const suppArray = suppliers[supplierName].items;
   const filterSuppArray = suppArray.map(items => items.type)
@@ -102,31 +98,22 @@ Thanks,
     return (
 
       <div>
-
-
         <div className="list-container">
-          <div>
-            {inventory.map(item =>
-              <Item
-                key={item.id}
-                item={item}
-                increaseHandler={increaseHandler.bind(item)}
-                decreaseHandler={decreaseHandler.bind(item)}
-              />
-            )}
-          </div>
+          {inventory.map(item =>
+            <Item
+              key={item.id}
+              item={item}
+              increaseHandler={increaseHandler.bind(item)}
+              decreaseHandler={decreaseHandler.bind(item)}
+            />
+          )}
         </div>
-        <div className="delivery-container">
-          <h3>Delivery:</h3>
-          <div className="select-container">
 
-            <select value={day} onChange={handleChange}>
-              {options.map((option) => (
-                <option value={option.value}>{option.label}</option>
-              ))}
-            </select>
-          </div>
-        </div>
+        <Date
+          day={day}
+          setDay={setDay}
+          key={uuidv4()}
+        />
 
         <p>{copied}</p>
         <div className="list-buttons">
@@ -142,29 +129,25 @@ Thanks,
       <div>
         {typeArray.map(type =>
           <Group
+            key={inventory.id}
             type={type}
             inventory={inventory}
             increaseHandler={increaseHandler}
             decreaseHandler={decreaseHandler} />
         )}
-        <div className="delivery-container">
-          <h4>Delivery:</h4>
-          <div className="select-container">
 
-            <select value={day} onChange={handleChange}>
-              {options.map((option) => (
-                <option value={option.value}>{option.label}</option>
-              ))}
-            </select>
-          </div>
-        </div>
+        <Date
+          day={day}
+          setDay={setDay}
+          key={uuidv4()}
+        />
+
         <p>{copied}</p>
         <div className="list-buttons">
           <Button variant="contained" onClick={() => { resetQty(); }}>Clear</Button>
           <Button variant="contained" disabled={!globalQty} onClick={() => { copiedMessage(); copyTemplate(); }}>Copy</Button>
           {suppliers[supplierName].canSendEmail && <Button variant="contained" disabled={!globalQty} onClick={() => { submit(); }}>Send Email</Button>}
         </div>
-
       </div>
     )
   }

@@ -91,7 +91,7 @@ const suppliers = {
             {
                 name: "Limes",
 
-                type: "fruit",
+                type: "Fruits",
                 pack: "box",
                 qty: 0,
                 id: uuidv4()
@@ -99,7 +99,7 @@ const suppliers = {
             {
                 name: "Apples",
 
-                type: "fruit",
+                type: "Fruits",
                 pack: "box",
                 qty: 0,
                 id: uuidv4()
@@ -107,7 +107,7 @@ const suppliers = {
             {
                 name: "Oranges",
 
-                type: "fruit",
+                type: "Fruits",
                 pack: "box",
                 qty: 0,
                 id: uuidv4()
@@ -115,7 +115,7 @@ const suppliers = {
             {
                 name: "Pineapples",
 
-                type: "fruit",
+                type: "Fruits",
                 pack: "box",
                 qty: 0,
                 id: uuidv4()
@@ -123,7 +123,7 @@ const suppliers = {
             {
                 name: "Lime Juice",
 
-                type: "fruit",
+                type: "Fruits",
                 pack: "box",
                 qty: 0,
                 id: uuidv4()
@@ -131,7 +131,7 @@ const suppliers = {
             {
                 name: "Orange Juice",
 
-                type: "fruit",
+                type: "Fruits",
                 pack: "box",
                 qty: 0,
                 id: uuidv4()
@@ -139,7 +139,7 @@ const suppliers = {
             {
                 name: "Fresh Lemonade",
 
-                type: "fruit",
+                type: "Fruits",
                 pack: "box",
                 qty: 0,
                 id: uuidv4()
@@ -147,7 +147,7 @@ const suppliers = {
             {
                 name: "Strawberries",
 
-                type: "fruit",
+                type: "Fruits",
                 pack: "box",
                 qty: 0,
                 id: uuidv4()
@@ -155,7 +155,15 @@ const suppliers = {
             {
                 name: "Frozen Passion fruit pulp",
 
-                type: "fruit",
+                type: "Fruits",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Frozen Mango",
+
+                type: "Fruits",
                 pack: "box",
                 qty: 0,
                 id: uuidv4()
@@ -163,7 +171,7 @@ const suppliers = {
             {
                 name: "Lychees",
 
-                type: "fruit",
+                type: "Fruits",
                 pack: "box",
                 qty: 0,
                 id: uuidv4()
@@ -264,6 +272,22 @@ const suppliers = {
                 qty: 0,
                 id: uuidv4()
             },
+            {
+                name: "Black bin bags 85L",
+
+                type: "dry goods",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Black bin bags 120L",
+
+                type: "dry goods",
+                pack: "box",
+                qty: 0,
+                id: uuidv4()
+            }
 
         ]
     },
@@ -676,6 +700,14 @@ const suppliers = {
             // WOLFMAN ------------------------------------------------------- 
             // LIQUEUR   -------------------------------------------------------
             {
+                name: "Aperol",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
                 name: "Baileys",
 
                 type: "Liqueur",
@@ -805,6 +837,14 @@ const suppliers = {
             },
             {
                 name: "Arak",
+
+                type: "Liqueur",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Apricot liqueur",
 
                 type: "Liqueur",
                 pack: "btl",
