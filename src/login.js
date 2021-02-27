@@ -9,6 +9,7 @@ import './styles/login.scss';
 import styles from './styles/styles-ui'
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import { withStyles } from '@material-ui/core/styles';
 
 
@@ -52,13 +53,14 @@ function Login({ classes }) {
                         <div className="login-container flex">
                             <TextField id="standard-basic" value={input} onKeyPress={e => e.key === 'Enter' && resetInput()} onChange={e => setInput(e.target.value)} placeholder="Password" />
                             <Link to={input === logPwd && "/menu"}>
-                                <Button
+                                {/* <Button
                                     className={classes.root}
                                     type="submit"
                                     onClick={resetInput}
                                     variant="contained">
                                     SEND
-                                </Button>
+                                </Button> */}
+                                <PlayCircleFilledIcon fontSize="large" onClick={resetInput} className={classes.root} />
                             </Link>
 
                         </div>
