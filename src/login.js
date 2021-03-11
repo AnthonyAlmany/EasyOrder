@@ -8,7 +8,6 @@ import './styles/app.scss';
 import './styles/login.scss';
 import styles from './styles/styles-ui'
 
-import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import { withStyles } from '@material-ui/core/styles';
