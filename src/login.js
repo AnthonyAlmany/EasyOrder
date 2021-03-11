@@ -8,8 +8,9 @@ import './styles/app.scss';
 import './styles/login.scss';
 import styles from './styles/styles-ui'
 
+import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-// import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import { withStyles } from '@material-ui/core/styles';
 
 
@@ -49,8 +50,14 @@ function Login({ classes }) {
                         <div className="nav">
                             <h2 className="nav-title">KAZBAH'APP</h2>
                         </div>
-                        <div className="login-container flex">
+                        {/* <div className="login-container flex">
                             <TextField id="standard-basic" value={input} onKeyPress={e => e.key === 'Enter' ? (input === logPwd ? window.location.href = '/menu' : resetInput()) : ''} onChange={e => setInput(e.target.value)} placeholder="Password" />
+                        </div> */}
+                        <div className="login-container flex">
+                            <TextField id="standard-basic" value={input} onKeyPress={e => e.key === 'Enter' && resetInput()} onChange={e => setInput(e.target.value)} placeholder="Password" />
+                            <Link to={input === logPwd && "/menu"}>
+                                <PlayCircleFilledIcon fontSize="large" onClick={resetInput} className={classes.root} />
+                            </Link>
                         </div>
                     </Route>
 
