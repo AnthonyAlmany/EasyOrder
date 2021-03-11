@@ -13,8 +13,8 @@ function Item({ item, increaseHandler, decreaseHandler }) {
           <h2>{item.qty}</h2>
           <Button variant="contained" onClick={increaseHandler}>+</Button>
         </div>
-      </div >
-    </div >
+      </div>
+    </div>
 
   );
 }

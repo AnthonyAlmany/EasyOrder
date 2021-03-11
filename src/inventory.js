@@ -132,7 +132,7 @@ const suppliers = {
                 name: "Orange Juice",
 
                 type: "Fruits",
-                pack: "box",
+                pack: "btl",
                 qty: 0,
                 id: uuidv4()
             },
@@ -140,7 +140,7 @@ const suppliers = {
                 name: "Fresh Lemonade",
 
                 type: "Fruits",
-                pack: "box",
+                pack: "btl",
                 qty: 0,
                 id: uuidv4()
             },
@@ -148,7 +148,7 @@ const suppliers = {
                 name: "Strawberries",
 
                 type: "Fruits",
-                pack: "box",
+                pack: "pack",
                 qty: 0,
                 id: uuidv4()
             },
@@ -156,7 +156,7 @@ const suppliers = {
                 name: "Frozen Passion fruit pulp",
 
                 type: "Fruits",
-                pack: "box",
+                pack: "ctn",
                 qty: 0,
                 id: uuidv4()
             },
@@ -164,7 +164,7 @@ const suppliers = {
                 name: "Frozen Mango",
 
                 type: "Fruits",
-                pack: "box",
+                pack: "ctn",
                 qty: 0,
                 id: uuidv4()
             },
@@ -281,10 +281,18 @@ const suppliers = {
                 id: uuidv4()
             },
             {
-                name: "Black bin bags 120L",
+                name: "Black bin bags 240L",
 
                 type: "dry goods",
                 pack: "box",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Agave Syrup",
+
+                type: "dry goods",
+                pack: "btl",
                 qty: 0,
                 id: uuidv4()
             }
@@ -295,14 +303,6 @@ const suppliers = {
         emailAddress: 'tim@wolfman.com.au',
         canSendEmail: true,
         items: [
-            {
-                name: "Almaza",
-
-                type: "Beer",
-                pack: "box",
-                qty: 0,
-                id: uuidv4()
-            },
             {
                 name: "Peroni",
 
