@@ -1,5 +1,6 @@
 import React from 'react'
 import options from '../select-day.js'
+import { v4 as uuidv4 } from 'uuid';
 
 function Date({ day, setDay }) {
 
@@ -17,7 +18,7 @@ function Date({ day, setDay }) {
 
                     <select value={day} onChange={handleChange}>
                         {options.map((option) => (
-                            <option value={option.value}>{option.label}</option>
+                            <option key={uuidv4()} value={option.value}>{option.label}</option>
                         ))}
                     </select>
                 </div>

@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import '../styles/item.scss'
 
 function Item({ item, increaseHandler, decreaseHandler }) {
+
   return (
     <div className="component">
       <div className='item-component'>
@@ -12,8 +13,8 @@ function Item({ item, increaseHandler, decreaseHandler }) {
           <h2>{item.qty}</h2>
           <Button variant="contained" onClick={increaseHandler}>+</Button>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
 
   );
 }

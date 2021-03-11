@@ -13,8 +13,8 @@ function Group({ inventory, increaseHandler, decreaseHandler, type }) {
 
     const [showList, setShowList] = useState(false);
 
-    const dropDownHandler = () => {
-        setShowList(!showList)
+    const dropDownHandler = (e) => {
+        setShowList(!showList);
     }
 
     return (
@@ -22,7 +22,8 @@ function Group({ inventory, increaseHandler, decreaseHandler, type }) {
             <div className="type">
                 <h3>{type}</h3>
                 <div className="cont"></div>
-                <Button onClick={dropDownHandler} >{!showList ? <ExpandMoreIcon /> : <ExpandLessIcon />}</Button>
+                {showList && <ExpandMoreIcon onClick={dropDownHandler} />}
+                {!showList && <ExpandLessIcon onClick={dropDownHandler} />}
             </div>
 
             <div className="list-container">

@@ -5,7 +5,7 @@ import Group from './components/Group.js'
 import Date from './components/Date.js'
 import './styles/app.scss'
 import Button from '@material-ui/core/Button';
-import { v4 as uuidv4 } from 'uuid';
+
 
 
 
@@ -41,6 +41,7 @@ function SupplierList({ suppliers }) {
     }).join("\n"));
 
     setGlobalQty(newState.reduce((acc, item) => { acc += item.qty; return acc; }, 0));
+
   };
 
 
@@ -48,7 +49,7 @@ function SupplierList({ suppliers }) {
     const newState = inventory.map(it => {
       if (it.id !== this.id) return it;
       return { ...this, qty: this.qty - 1 <= 0 ? 0 : this.qty - 1 };
-    })
+    });
     setInventory(
       newState
     );
@@ -112,7 +113,6 @@ Thanks,
         <Date
           day={day}
           setDay={setDay}
-          key={uuidv4()}
         />
 
         <p>{copied}</p>
@@ -129,7 +129,7 @@ Thanks,
       <div>
         {typeArray.map(type =>
           <Group
-            key={inventory.id}
+            key={type}
             type={type}
             inventory={inventory}
             increaseHandler={increaseHandler}
@@ -139,7 +139,6 @@ Thanks,
         <Date
           day={day}
           setDay={setDay}
-          key={uuidv4()}
         />
 
         <p>{copied}</p>
