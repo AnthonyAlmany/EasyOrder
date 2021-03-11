@@ -1,6 +1,5 @@
 import { React, useState } from 'react'
 import Item from "../components/Item.js"
-import Button from '@material-ui/core/Button';
 import '../styles/item.scss'
 import '../styles/supplier.scss'
 import '../styles/app.scss'
