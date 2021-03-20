@@ -1,8 +1,8 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import App from './App';
-import db from './firebase';
+// import db from './firebase';
 
 import './styles/app.scss';
 import './styles/login.scss';
@@ -17,22 +17,22 @@ function Login({ classes }) {
 
 
     //Login functions
-    const [logPwd, setLogPwd] = useState("");
+    // const [logPwd, setLogPwd] = useState("");
     const [input, setInput] = useState("");
     // const [checkPwd, setCheckPwd] = useState();
 
 
-    const getData = () => {
-        db.collection('pwd-inventory').onSnapshot(querySnapshot => {
-            const pwd = [];
-            querySnapshot.forEach(doc => { pwd.push(doc.data()) })
-            setLogPwd(pwd[0].pwd)
-        })
-    };
+    // const getData = () => {
+    //     db.collection('pwd-inventory').onSnapshot(querySnapshot => {
+    //         const pwd = [];
+    //         querySnapshot.forEach(doc => { pwd.push(doc.data()) })
+    //         setLogPwd(pwd[0].pwd)
+    //     })
+    // };
 
-    useEffect(() => {
-        getData();
-    }, []);
+    // useEffect(() => {
+    //     getData();
+    // }, []);
 
     const resetInput = () => {
         // setCheckPwd(input);
@@ -54,7 +54,7 @@ function Login({ classes }) {
                         </div> */}
                         <div className="login-container flex">
                             <TextField id="standard-basic" value={input} onKeyPress={e => e.key === 'Enter' && resetInput()} onChange={e => setInput(e.target.value)} placeholder="Password" />
-                            <Link to={input === logPwd && "/menu"}>
+                            <Link to="/menu">
                                 <PlayCircleFilledIcon fontSize="large" onClick={resetInput} className={classes.root} />
                             </Link>
                         </div>
