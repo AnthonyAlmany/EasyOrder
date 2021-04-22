@@ -700,6 +700,36 @@ const suppliers = {
             // WOLFMAN ------------------------------------------------------- 
             // LIQUEUR   -------------------------------------------------------
             {
+                name: "Jim Beam",
+                type: "Bourbon",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Maker's Mark",
+                type: "Bourbon",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Southern Comfort",
+                type: "Bourbon",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Wild Turkey",
+                type: "Bourbon",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            // WOLFMAN ------------------------------------------------------- 
+            // LIQUEUR   -------------------------------------------------------
+            {
                 name: "Aperol",
 
                 type: "Liqueur",
