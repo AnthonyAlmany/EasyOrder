@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles/app.scss'
+import './styles/app.css'
 import SupplierList from './SupplierList'
 import suppliers from './inventory'
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";

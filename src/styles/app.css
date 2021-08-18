@@ -8,10 +8,12 @@
 }
 body{
     font-family: 'Open Sans', sans-serif;
-   a{
-    text-decoration: none;
-    color: white;
-    } 
+}
+body a{
+    
+        text-decoration: none;
+        color: white;
+        
 }
 
 .nav{
@@ -22,9 +24,10 @@ body{
      display: flex;
      flex-direction: row;
      align-items: center;
-      :first-child{
-          margin-left: 0.5rem;
-      }
+  
+}
+.nav :first-child{
+    margin-left: 0.5rem;
 }
 
 .logo{
@@ -44,9 +47,9 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 list-style: none;
-h2{
-    font-family: 'Noto Serif', serif;
 }
+.list h2{
+    font-family: 'Noto Serif', serif;
 }
 .box{
     display: flex;
@@ -64,16 +67,15 @@ width: 20rem;
 .list-buttons{
     display: flex;
     justify-content: center;
-    span{
-        font-family: 'Noto Serif', serif;
-    }
-    button{
-        margin: 1rem 1rem;
-        background-color: rgb(223, 222, 236);
-        color: #0E2489;
-    }
 }
-
+.list-buttons span{
+    font-family: 'Noto Serif', serif;
+}
+.list-buttons button{
+    margin: 1rem 1rem;
+    background-color: rgb(223, 222, 236);
+    color: #0E2489;
+}
 
 .hidden{
     display: none;
@@ -84,9 +86,9 @@ width: 20rem;
     padding-top: 1rem;
     display:flex;
     justify-content: center;
-    h3{
-        font-family: 'Noto Serif', serif;
-    }
+}
+.delivery-container h3{
+    font-family: 'Noto Serif', serif;
 }
 
 select {
@@ -119,4 +121,72 @@ cursor: pointer;
 
 .sample-message{
  text-align: center;
+}
+
+.nav-title{
+    color: white;
+}
+
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container{
+    height: 100vh;
+}
+
+.button-send{
+color: #0E2489;
+}
+
+.component{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .item-component{
+    width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #0E2489;
+  }
+  
+  .count-component{
+  display:flex;
+  align-items: center;
+  }
+  .count-component button{
+    margin: 1rem 1rem;
+    padding: 0.2rem;
+    background-color: rgb(223, 222, 236);
+  }
+  .count-component span{
+    font-size: 1rem;
+  }
+
+  .type{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top:2rem;
+    margin: auto;
+}
+.type h3{
+    color: grey;
+    width: 30%;
+}
+.cont{
+    border-bottom: 2px solid grey;
+    width: 50%;
+}
+
+p{
+    text-align: center;
 }

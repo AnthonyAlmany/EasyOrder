@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import Item from './components/Item.js'
 import Group from './components/Group.js'
 import Date from './components/Date.js'
-import './styles/app.scss'
 import Button from '@material-ui/core/Button';
 
 
