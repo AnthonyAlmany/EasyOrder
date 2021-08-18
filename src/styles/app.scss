@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap');
 $base-color: #0E2489;
 
 *{
@@ -15,7 +17,7 @@ body{
 
 .nav{
      width: 100%;   
-     height: 4rem;
+     height: 7vh;
      background-color: $base-color;
 
      display: flex;
@@ -26,6 +28,10 @@ body{
       }
 }
 
+.logo{
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+}
 
 .list-container{
     margin-left: 0.5rem;
@@ -33,12 +39,15 @@ body{
 
 .list{
     width: 100%;
-    height: 90%;
+    height: 93vh;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
 list-style: none;
+h2{
+    font-family: 'Noto Serif', serif;
+}
 }
 .box{
     display: flex;
@@ -56,8 +65,13 @@ width: 20rem;
 .list-buttons{
     display: flex;
     justify-content: center;
+    span{
+        font-family: 'Noto Serif', serif;
+    }
     button{
         margin: 1rem 1rem;
+        background-color: rgb(223, 222, 236);
+        color: #0E2489;
     }
 }
 
@@ -71,6 +85,9 @@ width: 20rem;
     padding-top: 1rem;
     display:flex;
     justify-content: center;
+    h3{
+        font-family: 'Noto Serif', serif;
+    }
 }
 
 select {
@@ -86,8 +103,10 @@ select {
     padding-left: 1rem;
     width: 8    rem;
     color: $base-color;
-   
+    font-family: 'Noto Serif', serif;
 }
+
+
 
 .select-container{
     position: relative;
@@ -95,4 +114,10 @@ select {
 
 }
 
+#expand-icon:hover{
+cursor: pointer;
+}
 
+.sample-message{
+ text-align: center;
+}

@@ -2,7 +2,6 @@ import React from 'react'
 import './styles/app.scss'
 import SupplierList from './SupplierList'
 import suppliers from './inventory'
-import HomeIcon from '@material-ui/icons/Home';
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -17,22 +16,26 @@ function App() {
             <BrowserRouter>
                 <div>
                     <div className="nav">
-                        <Link to="/menu"><HomeIcon fontSize="large" /></Link>
-                        <Link to="/menu"><h2>KAZBAH'APP</h2></Link>
+                    
+                        <Link to="/"><span className="logo">Easy Order</span></Link>
                     </div>
+                    
 
                     <Switch>
-                        <Route path="/menu" exact>
+                        <Route path="/" exact>
                             <div className="menu">
+                                <div className="sample-message">
+                                    <h2>Please note that for privacy reasons, this is a sample version and not in use.</h2>
+                                </div>
                                 <div className="list">
                                     {Object.keys(suppliers).map(supplierName =>
-                                        <Link key={supplierName} to={`/menu/suppliers/${supplierName}`}> <div className="box"> <h2>{supplierName}</h2></div></Link>
+                                        <Link key={supplierName} to={`/suppliers/${supplierName}`}> <div className="box"> <h2>{supplierName}</h2></div></Link>
                                     )}
                                 </div>
                             </div>
                         </Route>
 
-                        <Route path="/menu/suppliers/:supplierName">
+                        <Route path="/suppliers/:supplierName">
                             <SupplierList
                                 key={uuidv4()}
                                 suppliers={suppliers}

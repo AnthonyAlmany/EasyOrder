@@ -25,6 +25,7 @@ function SupplierList({ suppliers }) {
     const newState = inventory.map(it => {
       if (it.id !== this.id) return it;
       return { ...this, qty: this.qty + 1 > 10 ? 10 : this.qty + 1 };
+ 
     });
 
 
@@ -76,14 +77,14 @@ function SupplierList({ suppliers }) {
   }
 
   const copyTemplate = () => {
-    navigator.clipboard.writeText(`Hello,\n\nI would like to order for Kazbah Darling Harbour the following items:\n\n${message}\n\nDelivery on ${day}\n
+    navigator.clipboard.writeText(`Hello,\n\nI would like to order for "My Company" the following items:\n\n${message}\n\nDelivery on ${day}\n
       Thanks,
       `)
   };
 
   const submit = () => {
-    window.open(`mailto:${suppliers[supplierName].emailAddress}?cc=zahi@kazbah.com.au,dhmanager@kazbah.com.au&subject=Ordering Request for Kazbah&body=${encodeURIComponent(
-      `Hello,\n\nI would like to order for Kazbah Darling Harbour the following items:\n\n${message}\n\nDelivery on ${day}\n
+    window.open(`mailto:${suppliers[supplierName].emailAddress}?cc=yourcc@email.com.au&subject=Ordering Request for "My Company"&body=${encodeURIComponent(
+      `Hello,\n\nI would like to order for"My Company" the following items:\n\n${message}\n\nDelivery on ${day}\n
 Thanks,
 `)}`);
   };
@@ -97,7 +98,7 @@ Thanks,
 
   if (typeArray.length === 1) {
     return (
-
+      
       <div>
         <div className="list-container">
           {inventory.map(item =>
@@ -120,6 +121,7 @@ Thanks,
           <Button variant="contained" onClick={() => { resetQty(); }}>Clear</Button>
           <Button variant="contained" disabled={!globalQty} onClick={() => { copiedMessage(); copyTemplate(); }}>Copy</Button>
           {suppliers[supplierName].canSendEmail && <Button variant="contained" disabled={!globalQty} onClick={() => { submit(); }}>Send Email</Button>}
+      
         </div>
       </div>
 
@@ -143,8 +145,8 @@ Thanks,
 
         <p>{copied}</p>
         <div className="list-buttons">
-          <Button variant="contained" onClick={() => { resetQty(); }}>Clear</Button>
-          <Button variant="contained" disabled={!globalQty} onClick={() => { copiedMessage(); copyTemplate(); }}>Copy</Button>
+          <Button variant="contained" onClick={() => { resetQty(); }}><span>Clear</span></Button>
+          <Button variant="contained" disabled={!globalQty} onClick={() => { copiedMessage(); copyTemplate(); }}><span>Copy</span></Button>
           {suppliers[supplierName].canSendEmail && <Button variant="contained" disabled={!globalQty} onClick={() => { submit(); }}>Send Email</Button>}
         </div>
       </div>

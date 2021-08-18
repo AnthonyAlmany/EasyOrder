@@ -21,8 +21,8 @@ function Group({ inventory, increaseHandler, decreaseHandler, type }) {
             <div className="type">
                 <h3>{type}</h3>
                 <div className="cont"></div>
-                {showList && <ExpandMoreIcon onClick={dropDownHandler} />}
-                {!showList && <ExpandLessIcon onClick={dropDownHandler} />}
+                {showList && <ExpandMoreIcon id="expand-icon" onClick={dropDownHandler} />}
+                {!showList && <ExpandLessIcon id="expand-icon" onClick={dropDownHandler} />}
             </div>
 
             <div className="list-container">
