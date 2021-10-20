@@ -68,6 +68,30 @@ const suppliers = {
                 pack: "btl",
                 qty: 0,
                 id: uuidv4()
+            },
+            {
+                name: "Lemon",
+
+                type: "",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Lime",
+
+                type: "",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
+            },
+            {
+                name: "Fresh Lemonade",
+
+                type: "",
+                pack: "btl",
+                qty: 0,
+                id: uuidv4()
             }]
     },
     "Food & Packaging": {
