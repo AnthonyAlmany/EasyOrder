@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import './styles/app.css'
 import SupplierList from './SupplierList'
 import suppliers from './inventory'
@@ -12,7 +12,7 @@ function App() {
 
 
     return (
-        <div>
+        <>
             <BrowserRouter>
                 <div>
                     <div className="nav">
@@ -38,7 +38,7 @@ function App() {
                         <Route path="/suppliers/:supplierName">
                             <SupplierList
                                 key={uuidv4()}
-                                suppliers={suppliers}
+                                suppliers ={suppliers}
                             />
 
                         </Route>
@@ -47,9 +47,10 @@ function App() {
             </BrowserRouter >
 
 
-        </div>
+        </>
 
     )
 };
 
 export default App;
+

@@ -1,16 +1,21 @@
-import { React, useState } from 'react'
-import Item from "../components/Item.js"
+import  * as React from 'react'
+import  {useState}  from 'react'
+import Item from "./Item"
 
 
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-function Group({ inventory, increaseHandler, decreaseHandler, type }) {
+import {groupType} from "../types"
 
 
-    const [showList, setShowList] = useState(false);
 
-    const dropDownHandler = (e) => {
+function Group({ inventory, increaseHandler, decreaseHandler, type }:groupType) {
+
+
+    const [showList, setShowList] = useState<boolean>(false);
+
+    const dropDownHandler = () => {
         setShowList(!showList);
     }
 

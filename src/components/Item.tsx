@@ -1,7 +1,11 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
 
-function Item({ item, increaseHandler, decreaseHandler }) {
+import {propsItem} from "../types"
+
+
+
+function Item({ item, decreaseHandler, increaseHandler }: propsItem) {
 
   return (
     <div className="component">
