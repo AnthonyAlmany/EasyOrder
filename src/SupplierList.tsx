@@ -3,52 +3,43 @@ import { useState } from 'react';
 import { useParams } from "react-router-dom";
 
 import Item from './components/Item'
-import Group from './components/Group'
 import Date from './components/Date'
+import Options from './components/Options'
 
 import Button from '@material-ui/core/Button';
-import {supplierList, supplierParams, thisType, newStateType} from "./types";
+import {supplierList, supplierParams, thisType, newStateType, QtyOperation, supplierDetails} from "./types";
 
 
 
 function SupplierList({ suppliers }: supplierList) {
 
   const { supplierName} = useParams<supplierParams>();
-  const [day, setDay] = useState<string>("Wednesday");
+  const [day, setDay] = useState<string>("");
   const [globalQty, setGlobalQty] = useState(suppliers[supplierName].items.reduce((acc, item) => { acc += item.qty; return acc; }, 0));
   const [message, setMessage] = useState<string>('');
   const [copied, setCopied] = useState("");
   const [inventory, setInventory] = useState<newStateType[]>(suppliers[supplierName].items);
+  const [supplierDetails] = useState<supplierDetails>(suppliers[supplierName]);
+  const [deleteToggle, setDeleteToggle] = useState<boolean>(false);
+  const [search, setSearch] = useState<string>('')
 
-
-  const increaseHandler = function (this : thisType) {
-    const newState : newStateType[] = inventory.map((it) => {
-      if (it.id !== this.id ) return it;
-      return { ...this, qty: this.qty + 1 > 10 ? 10 : this.qty + 1 };
- 
-    });
-
-    setInventory(newState);
-    setMessage(newState.filter(e => e.qty > 0).map((el) => {
-
-      return (
-        `- ${el.qty} ${el.pack} of ${el.name}`
-      );
-    }).join("\n"));
-
-    setGlobalQty(newState.reduce((acc, item) => { acc += item.qty; return acc; }, 0));
-
-  };
-
-
-  const decreaseHandler = function (this : thisType) {
+  const getQtyForOperation  = (item: newStateType, operation: QtyOperation) => {
+    switch (operation) {
+      case QtyOperation.Decrease: return Math.max(0, item.qty - 1);
+      case QtyOperation.Increase: return Math.min(10, item.qty + 1);
+    };
+  }
+  
+  const qtyHandler = (item: newStateType, operation : QtyOperation) => {
+    const newQty = getQtyForOperation(item, operation);
+   
     const newState = inventory.map(it => {
-      if (it.id !== this.id) return it;
-      return { ...this, qty: this.qty - 1 <= 0 ? 0 : this.qty - 1 };
+      if (it.id !== item.id) return it;
+      return { ...item, qty: newQty };
     });
 
     setInventory(newState);
-    setMessage(newState.filter(e => e.qty > 0).map(el => {
+    setMessage(newState.filter(e => e.qty).map(el => {
 
       return (
         `- ${el.qty} ${el.pack} of ${el.name}`
@@ -56,7 +47,11 @@ function SupplierList({ suppliers }: supplierList) {
     }).join("\n"));
 
     setGlobalQty(newState.reduce((acc, item) => { acc += item.qty; return acc; }, 0));
-  };
+  }
+
+  const deleteItem = function (this: thisType) {
+    setInventory(inventory.filter(it => it.id !== this.id && it))
+  }
 
   const resetQty = () => {
     const newState = inventory.map(it => { return { ...it, qty: 0 } });
@@ -85,25 +80,32 @@ Thanks,
 
 
 
-  const suppArray  = suppliers[supplierName].items;
-  const filterSuppArray  = suppArray.map(items => items.type)
-  const typeArray = [...new Set(filterSuppArray)]
+  console.log(inventory.filter(item => item.name?.toLowerCase().includes("Full")))
 
-
-  if (typeArray.length === 1) {
     return (
       
       <div>
-        <div className="list-container">
+        <Options
+          supplierDetails={supplierDetails}
+          supplierName={supplierName} 
+          inventory={inventory}
+          setInventory={setInventory}
+          deleteToggle={deleteToggle}
+          setDeleteToggle={setDeleteToggle}
+          setSearch={setSearch}
+          />
+
           {inventory.map((item: newStateType ) =>
             <Item
               key={item.id}
               item={item}
-              increaseHandler={increaseHandler.bind(item)}
-              decreaseHandler={decreaseHandler.bind(item)}
+              increaseHandler={qtyHandler.bind(null, item, QtyOperation.Increase)}
+              decreaseHandler={qtyHandler.bind(null, item, QtyOperation.Decrease)}
+              deleteItem={deleteItem.bind(item)}
+              deleteToggle={deleteToggle}
             />
           )}
-        </div>
+    
 
         <Date
           day={day}
@@ -120,38 +122,10 @@ Thanks,
       </div>
 
     )
-  } else {
-    return (
-      <div>
-        {typeArray.map(type =>
-          <Group
-            key={type}
-            type={type}
-            inventory={inventory}
-            increaseHandler={increaseHandler}
-            decreaseHandler={decreaseHandler} />
-        )}
-
-        <Date
-          day={day}
-          setDay={setDay}
-        />
-
-        <p>{copied}</p>
-        <div className="list-buttons">
-          <Button variant="contained" onClick={() => { resetQty(); }}><span>Clear</span></Button>
-          <Button variant="contained" disabled={!globalQty} onClick={() => { copiedMessage(); copyTemplate(); }}><span>Copy</span></Button>
-          {suppliers[supplierName].canSendEmail && <Button variant="contained" disabled={!globalQty} onClick={() => { submit(); }}>Send Email</Button>}
-        </div>
-      </div>
-    )
   }
 
 
-}
-
 export default SupplierList
-
 
 
 

@@ -1,0 +1,32 @@
+/* Options */
+.options-container{
+    height: 4rem;
+    width: 100%;
+    margin-left: 2rem;
+    display:  flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.options-container > *{
+    margin-right: 1.5rem;
+}
+
+#standard-basic{
+  padding-top: 0px;
+}
+
+.infos-container{
+    font-family: 'Noto Serif', serif;
+    font-weight: bold;
+    color: rgb(101, 99, 96);
+}
+.infos-container p{
+    margin-bottom: 10px;
+}
+
+#save-added-item{
+    height: 2.5rem;
+    align-self: center;
+}
