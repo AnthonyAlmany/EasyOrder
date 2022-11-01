@@ -23,6 +23,8 @@ function SupplierList({ suppliers }: supplierList) {
   const [deleteToggle, setDeleteToggle] = useState<boolean>(false);
   const [search, setSearch] = useState<string>('')
 
+
+  // Quantities handler
   const getQtyForOperation  = (item: newStateType, operation: QtyOperation) => {
     switch (operation) {
       case QtyOperation.Decrease: return Math.max(0, item.qty - 1);
@@ -49,10 +51,13 @@ function SupplierList({ suppliers }: supplierList) {
     setGlobalQty(newState.reduce((acc, item) => { acc += item.qty; return acc; }, 0));
   }
 
+
+  // Delete Items function
   const deleteItem = function (this: thisType) {
     setInventory(inventory.filter(it => it.id !== this.id && it))
   }
 
+  // Reset quantities to 0 function
   const resetQty = () => {
     const newState = inventory.map(it => { return { ...it, qty: 0 } });
     setInventory(newState)
@@ -60,17 +65,17 @@ function SupplierList({ suppliers }: supplierList) {
     setCopied("")
   };
 
-
-  const copiedMessage = () => {
-    setCopied("Order has been copied!")
-  }
-
+  // Copy to clipboard function
   const copyTemplate = () => {
     navigator.clipboard.writeText(`Hello,\n\nI would like to order for "My Company" the following items:\n\n${message}\n\nDelivery on ${day}\n
       Thanks,
       `)
   };
+  const copiedMessage = () => {
+    setCopied("Order has been copied!")
+  }
 
+  // Submit Email function
   const submit = () => {
     window.open(`mailto:${suppliers[supplierName].emailAddress}?cc=yourcc@email.com.au&subject=Ordering Request for "My Company"&body=${encodeURIComponent(
       `Hello,\n\nI would like to order for "My Company" the following items:\n\n${message}\n\nDelivery on ${day}\n
@@ -92,6 +97,7 @@ Thanks,
           setSearch={setSearch}
           />
 
+          {/* Filter through items array depending of Search field then map through array */}
           {inventory.filter(item => item.name?.toLowerCase().includes(search.toLowerCase()))
           .map((item: newStateType ) =>
             <Item

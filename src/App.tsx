@@ -1,6 +1,6 @@
 import * as React from 'react'
 import './styles/app.css'
-import SupplierList from './SupplierList'
+import Main from './Main'
 import suppliers from './inventory'
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
@@ -36,7 +36,7 @@ function App() {
                         </Route>
 
                         <Route path="/suppliers/:supplierName">
-                            <SupplierList
+                            <Main
                                 key={uuidv4()}
                                 suppliers ={suppliers}
                             />

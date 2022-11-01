@@ -35,14 +35,12 @@ function Options({inventory, setInventory, supplierName, supplierDetails, delete
   const [input, setInput] = useState<newItemInput>({name:'',pack:''})
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInput( (prev) => ({ ...prev, [event.target.name]: event.target.value}))
+    setInput(prev => ({ ...prev, [event.target.name]: event.target.value}))
   }
   const addNewItem = () => {
-    setInventory([...inventory, {name: input.name, pack:input.pack, type:'', qty:0, id:uuidv4()}]);
+    setInventory(prev => [...prev, {name: input.name, pack:input.pack, type:'', qty:0, id:uuidv4()}]);
     setInput({name:'',pack:''})
   }
-
-  // Handle Search feature
 
 
   // Display Modal Infos
@@ -105,7 +103,7 @@ function Options({inventory, setInventory, supplierName, supplierDetails, delete
             >
               <TextField id="outlined-basic" label="name:" variant="outlined" name="name"  value={input.name} onChange={handleChange}/>
               <TextField id="outlined-basic" label="pack: (btl, box...)" variant="outlined" name="pack" value={input.pack}    onChange={handleChange}/>
-              <Button id="save-added-item" color="primary" variant="contained" disabled={input.name === '' || input.pack === ''} onClick={addNewItem}>Save</Button>
+              <Button id="save-added-item" color="primary" variant="contained" disabled={!input.name || !input.pack} onClick={addNewItem}>Save</Button>
             </Box>
         </Popover>
 
