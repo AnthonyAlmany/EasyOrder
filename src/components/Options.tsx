@@ -2,15 +2,10 @@ import React, {useState} from 'react'
 import '../styles/options.css'
 import { v4 as uuidv4 } from 'uuid';
 
-import TextField from '@material-ui/core/TextField';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
-import Popover from '@mui/material/Popover';
+import { Button, Popover, Modal, Box, TextField } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { newItemInput, optionsType } from '../types';
-
-import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 
 const theme = createTheme({
   palette:{
@@ -118,7 +113,7 @@ function Options({inventory, setInventory, supplierName, supplierDetails, delete
         <span><Button color={!deleteToggle ? "primary" : "secondary"} variant="contained" onClick={showDeleteIcons} >Delete Item</Button></span>
        
 
-        <TextField color="primary" id="standard-basic" label="Search Item" variant="standard" onChange={e => setSearch(e.target.value)} />
+        <TextField color="primary" id="standard-basic" label="Search Item" variant="standard" onChange={(e:React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)} />
        
         </ThemeProvider>
       

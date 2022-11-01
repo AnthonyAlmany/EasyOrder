@@ -6,7 +6,7 @@ import Item from './components/Item'
 import Date from './components/Date'
 import Options from './components/Options'
 
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 import {supplierList, supplierParams, thisType, newStateType, QtyOperation, supplierDetails} from "./types";
 
 
@@ -14,7 +14,7 @@ import {supplierList, supplierParams, thisType, newStateType, QtyOperation, supp
 function SupplierList({ suppliers }: supplierList) {
 
   const { supplierName} = useParams<supplierParams>();
-  const [day, setDay] = useState<string>("");
+  const [day, setDay] = useState<string>("Monday");
   const [globalQty, setGlobalQty] = useState(suppliers[supplierName].items.reduce((acc, item) => { acc += item.qty; return acc; }, 0));
   const [message, setMessage] = useState<string>('');
   const [copied, setCopied] = useState("");
@@ -79,9 +79,6 @@ Thanks,
   };
 
 
-
-  console.log(inventory.filter(item => item.name?.toLowerCase().includes("Full")))
-
     return (
       
       <div>
@@ -95,7 +92,8 @@ Thanks,
           setSearch={setSearch}
           />
 
-          {inventory.map((item: newStateType ) =>
+          {inventory.filter(item => item.name?.toLowerCase().includes(search.toLowerCase()))
+          .map((item: newStateType ) =>
             <Item
               key={item.id}
               item={item}
@@ -126,7 +124,6 @@ Thanks,
 
 
 export default SupplierList
-
 
 
       

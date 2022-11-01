@@ -2,6 +2,7 @@ import React from 'react'
 import options from '../select-day'
 import { v4 as uuidv4 } from 'uuid';
 
+
 interface propsDate{
     day: string,
     setDay: (day : string) => void
@@ -11,8 +12,8 @@ function Date({ day, setDay } : propsDate) {
 
 
 
-    const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setDay(e.target.value)
+    const handleChange = (e:any) => {
+        setDay(e.target.value);
     }
 
     return (
