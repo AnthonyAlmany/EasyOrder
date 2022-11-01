@@ -30,3 +30,15 @@
     height: 2.5rem;
     align-self: center;
 }
+
+@media screen and (max-width: 768px){
+.options-container{
+    margin-left: 1rem;
+    margin-top: 1rem;
+    padding-bottom: 5rem;
+    flex-wrap: wrap;
+}
+.search-field{
+    width: 8rem;
+}
+    }

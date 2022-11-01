@@ -113,7 +113,7 @@ function Options({inventory, setInventory, supplierName, supplierDetails, delete
         <span><Button color={!deleteToggle ? "primary" : "secondary"} variant="contained" onClick={showDeleteIcons} >Delete Item</Button></span>
        
 
-        <TextField color="primary" id="standard-basic" label="Search Item" variant="standard" onChange={(e:React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)} />
+        <span className='search-field'><TextField color="primary" id="standard-basic" label="Search Item" variant="standard" onChange={(e:React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)} /></span>
        
         </ThemeProvider>
       
