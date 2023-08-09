@@ -5,15 +5,17 @@ import { useParams } from "react-router-dom";
 import Item from './components/Item'
 import Date from './components/Date'
 import Options from './components/Options'
+import OrderList from './components/OrderList';
 
 import Button from '@mui/material/Button';
-import {supplierList, supplierParams, thisType, newStateType, QtyOperation, supplierDetails} from "./types";
+import { supplierList, supplierParams, thisType, newStateType, QtyOperation, supplierDetails } from "./types";
+
 
 
 
 function SupplierList({ suppliers }: supplierList) {
 
-  const { supplierName} = useParams<supplierParams>();
+  const { supplierName } = useParams<supplierParams>();
   const [day, setDay] = useState<string>("Monday");
   const [globalQty, setGlobalQty] = useState(suppliers[supplierName].items.reduce((acc, item) => { acc += item.qty; return acc; }, 0));
   const [message, setMessage] = useState<string>('');
@@ -21,20 +23,21 @@ function SupplierList({ suppliers }: supplierList) {
   const [inventory, setInventory] = useState<newStateType[]>(suppliers[supplierName].items);
   const [supplierDetails] = useState<supplierDetails>(suppliers[supplierName]);
   const [deleteToggle, setDeleteToggle] = useState<boolean>(false);
-  const [search, setSearch] = useState<string>('')
+  const [search, setSearch] = useState<string>('');
+
 
 
   // Quantities handler
-  const getQtyForOperation  = (item: newStateType, operation: QtyOperation) => {
+  const getQtyForOperation = (item: newStateType, operation: QtyOperation) => {
     switch (operation) {
       case QtyOperation.Decrease: return Math.max(0, item.qty - 1);
       case QtyOperation.Increase: return Math.min(10, item.qty + 1);
     };
   }
-  
-  const qtyHandler = (item: newStateType, operation : QtyOperation) => {
+
+  const qtyHandler = (item: newStateType, operation: QtyOperation) => {
     const newQty = getQtyForOperation(item, operation);
-   
+
     const newState = inventory.map(it => {
       if (it.id !== item.id) return it;
       return { ...item, qty: newQty };
@@ -84,52 +87,56 @@ Thanks,
   };
 
 
-    return (
-      
-      <div>
-        <Options
-          supplierDetails={supplierDetails}
-          supplierName={supplierName} 
-          inventory={inventory}
-          setInventory={setInventory}
-          deleteToggle={deleteToggle}
-          setDeleteToggle={setDeleteToggle}
-          setSearch={setSearch}
-          />
+  return (
 
+    <>
+      <Options
+        supplierDetails={supplierDetails}
+        supplierName={supplierName}
+        inventory={inventory}
+        setInventory={setInventory}
+        deleteToggle={deleteToggle}
+        setDeleteToggle={setDeleteToggle}
+        setSearch={setSearch}
+      />
+
+      <div className='main-container'>
+        <div className='items-container'>
           {/* Filter through items array depending of Search field then map through array */}
-          {inventory.filter(item => item.name?.toLowerCase().includes(search.toLowerCase()))
-          .map((item: newStateType ) =>
-            <Item
-              key={item.id}
-              item={item}
-              increaseHandler={qtyHandler.bind(null, item, QtyOperation.Increase)}
-              decreaseHandler={qtyHandler.bind(null, item, QtyOperation.Decrease)}
-              deleteItem={deleteItem.bind(item)}
-              deleteToggle={deleteToggle}
-            />
-          )}
-    
+          {(inventory.some(item => item.name?.toLowerCase().includes(search.toLowerCase())) && inventory.filter(item => item.name?.toLowerCase().includes(search.toLowerCase()))
+            .map((item: newStateType) => {
+              return <Item
+                key={item.id}
+                item={item}
+                increaseHandler={qtyHandler.bind(null, item, QtyOperation.Increase)}
+                decreaseHandler={qtyHandler.bind(null, item, QtyOperation.Decrease)}
+                deleteItem={deleteItem.bind(item)}
+                deleteToggle={deleteToggle} />
+            })) || <p>No items found using "{search}"</p>}
 
-        <Date
-          day={day}
-          setDay={setDay}
-        />
+          <Date day={day} setDay={setDay} />
 
-        <p>{copied}</p>
-        <div className="list-buttons">
-          <Button variant="contained" onClick={() => { resetQty(); }}>Clear</Button>
-          <Button variant="contained" disabled={!globalQty} onClick={() => { copiedMessage(); copyTemplate(); }}>Copy</Button>
-          {suppliers[supplierName].canSendEmail && <Button variant="contained" disabled={!globalQty} onClick={() => { submit(); }}>Send Email</Button>}
-      
+          <p>{copied}</p>
+
+          <div className="list-buttons">
+            <Button variant="contained" onClick={() => { resetQty(); }}>Clear</Button>
+            <Button variant="contained" disabled={!globalQty} onClick={() => { copiedMessage(); copyTemplate(); }}>Copy</Button>
+            {suppliers[supplierName].canSendEmail && <Button variant="contained" disabled={!globalQty} onClick={() => { submit(); }}>Send Email</Button>}
+          </div>
         </div>
+
+        < OrderList globalQty={globalQty} inventory={inventory} />
+
+
       </div>
 
-    )
-  }
+
+    </>
+
+  )
+}
 
 
 export default SupplierList
 
 
-      

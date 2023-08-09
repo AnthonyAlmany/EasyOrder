@@ -1,62 +1,108 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0rem;
     box-sizing: border-box;
 }
-body{
+
+body {
     font-family: 'Open Sans', sans-serif;
     overflow-x: hidden;
 }
-body a{
-    
-        text-decoration: none;
-        color: white;
-        
+
+body a {
+
+    text-decoration: none;
+    color: white;
+
 }
 
-.nav{
-     width: 100%;   
-     height: 6vh;
-     background-color: #0E2489;
-
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-  
+h2 {
+    font-size: medium;
 }
-.nav :first-child{
+
+.nav {
+    width: 100%;
+    height: 6vh;
+    background-color: #0E2489;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.nav :first-child {
     margin-left: 0.5rem;
 }
 
-.logo{
+.logo {
     font-family: 'Lobster', cursive;
     font-size: 2rem;
 }
 
-.list-container{
-    margin-left: 0.5rem;
-    width: 60%;
+.main-container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+
 }
 
-.list{
+.items-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.list-container {
+    margin-left: 0.5rem;
+
+}
+
+.order-container {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    margin-left: 4rem;
+    border-left-style: solid;
+    border-width: 1px;
+    border-color: rgb(197, 205, 211);
+}
+
+.order-list {
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    color: #0E2489;
+}
+
+.order-list h4 {
+    margin-bottom: 1rem;
+}
+
+.empty-list h2 {
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+    color: #0E2489;
+}
+
+.list {
     width: 100%;
     height: 93vh;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
 }
-.list h2{
-    font-family: 'Noto Serif', serif;
-}
-.box{
+
+
+.box {
     display: flex;
     justify-content: center;
-width: 20rem;
+    width: 20rem;
     margin: 2rem;
     padding: 1rem;
     background-color: #0E2489;
@@ -66,131 +112,142 @@ width: 20rem;
 
 }
 
-.list-buttons{
+.list-buttons {
     display: flex;
     justify-content: center;
-    width: 60%;
 }
-.list-buttons span{
-    font-family: 'Noto Serif', serif;
-}
-.list-buttons button{
+
+
+
+.list-buttons button {
     margin: 1rem 1rem;
     background-color: rgb(223, 222, 236);
     color: #0E2489;
 }
 
 
-.delivery-container{
+.delivery-container {
     margin: 2rem;
     padding-top: 1rem;
-    display:flex;
+    display: flex;
     justify-content: center;
     width: 60%;
 }
-.delivery-container h3{
-    font-family: 'Noto Serif', serif;
-}
+
+
 
 select {
-    border:none;
+    border: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    -ms-appearance: none; 
-    font-family: 'Open Sans', sans-serif;
+    -ms-appearance: none;
     font-size: medium;
     cursor: pointer;
-    padding-top: 3px;
     padding-left: 1rem;
-    width: 8    rem;
+    width: 9 rem;
     color: #0E2489;
     font-family: 'Noto Serif', serif;
 }
 
 
-
-.select-container{
+.select-container {
     position: relative;
     overflow: hidden;
-
 }
 
-#expand-icon:hover{
-cursor: pointer;
+#expand-icon:hover {
+    cursor: pointer;
 }
 
-.sample-message{
- text-align: center;
+.sample-message {
+    text-align: center;
 }
 
-.nav-title{
+.nav-title {
     color: white;
 }
 
 
-.flex{
+.flex {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.login-container{
+.login-container {
     height: 100vh;
 }
 
-.button-send{
-color: #0E2489;
+.button-send {
+    color: #0E2489;
 }
 
-.component{
+.component {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
-  }
-  
-  .item-component{
+}
+
+.item-component {
     width: 90%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #0E2489;
-  }
-  
-  .count-component{
-  display:flex;
-  align-items: center;
-  }
-  .count-component button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #0E2489;
+}
+
+.item-component h3 {
+    font-size: medium;
+}
+
+.count-component {
+    display: flex;
+    align-items: center;
+}
+
+.count-component h2 {
+    font-size: medium;
+}
+
+.count-component button {
     margin: 1rem 1rem;
     padding: 0.2rem;
     background-color: rgb(223, 222, 236);
-  }
-  .count-component span{
+}
+
+.count-component span {
     font-size: 1rem;
     color: #0E2489;
-  }
+}
 
-p{
+p {
     text-align: center;
 }
 
-.delete-button:hover{
+.delete-button:hover {
     cursor: pointer;
 }
-.hidden{
+
+.hidden {
     visibility: hidden;
 }
 
-@media screen and (max-width: 768px){
-.delivery-container{
-    width: 100%;
-}
-.list-buttons{
-    width: 100%;
-}
-.list-container{
-    width: 100%;
-    margin-left: 0;
-}
+@media screen and (max-width: 768px) {
+    .delivery-container {
+        width: 100%;
+    }
+
+    .list-buttons {
+        width: 100%;
+    }
+
+    .list-container {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .order-container {
+        display: none;
+    }
 }
